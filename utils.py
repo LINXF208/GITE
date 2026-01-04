@@ -11,10 +11,10 @@ from scipy.sparse import csr_matrix
 
 
 def wasserstein(X, out_1, out_0, t, yf, p, gamma_hy,lam=10, its=10, sq=True, backpropT=False):
-    it = tf.where(t>0)[:,0]
-    ic = tf.where(t<1)[:,0]
-    Xc = tf.gather(x_normalized,ic)
-    Xt = tf.gather(x_normalized,it)
+    it = tf.where(t > 0)[:,0]
+    ic = tf.where(t < 1)[:,0]
+    Xc = tf.gather(x_normalized, ic)
+    Xt = tf.gather(x_normalized, it)
     nc = tf.cast(tf.shape(Xc)[0], tf.float32)
     nt = tf.cast(tf.shape(Xt)[0], tf.float32)
 
