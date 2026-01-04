@@ -346,4 +346,4 @@ class GITEModel(keras.Model):
         y_pre = tf.dynamic_stitch([i_0, i_1], [output_C, output_T])
         factual_loss = tf.reduce_mean(tf.square((train_y - y_pre)))  
         print("pre_y val loss", factual_loss)
-        return factual
+        return factual_loss
