@@ -15,6 +15,6 @@ def evaluate(model, inputtensor, test_idx, all_ite, ts, yfs):
     pehe = np.mean((pred_ite - true_ite) ** 2)
     msey = np.mean((pre_test_yf - test_yf) ** 2)
     err_ate = np.abs(ATE - true_ate)
-    return msey,pehe,err_ate
+    return msey, pehe, err_ate
 
 
