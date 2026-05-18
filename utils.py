@@ -344,17 +344,15 @@ def implement(config, data_name, model_name, f_activation, start_i, end_i):
         save_my_model(cur_save_path, cur_save_model_name, cur_model)
 
         cur_val_results = []
-        mse_y, pehe, err_ate = evaluation.evaluate(cur_model, cur_all_inputs, val_idx, cur_ites_true, data[2], data[3])
+        mse_y, pehe = evaluation.evaluate(cur_model, cur_all_inputs, val_idx, cur_ites_true, data[2], data[3])
         cur_val_results.append(mse_y)
         cur_val_results.append(pehe)
-        cur_val_results.append(err_ate)
         cur_val_results_name = './results/results_' + data_name + "_" + str(model_name)[8:-2] + "_val" + "_split_" + str(i) 
         save_results(cur_val_results, cur_val_results_name)
 
         cur_test_results = []
-        mse_y, pehe, err_ate = evaluation.evaluate(cur_model, cur_all_inputs, test_idx, cur_ites_true, data[2], data[3])
+        mse_y, pehe = evaluation.evaluate(cur_model, cur_all_inputs, test_idx, cur_ites_true, data[2], data[3])
         cur_test_results.append(mse_y)
         cur_test_results.append(pehe)
-        cur_test_results.append(err_ate)
         cur_test_results_name = './results/test_results_' + data_name + "_" + str(model_name)[8:-2] + "_test" + "_split_" + str(i) 
         save_results(cur_test_results, cur_test_results_name)
