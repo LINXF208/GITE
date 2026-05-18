@@ -10,11 +10,9 @@ def evaluate(model, inputtensor, test_idx, all_ite, ts, yfs):
 
     pred_ite = np.array(pre_t) - np.array(pre_c)
     ate = np.array(tf.reduce_mean(pred_ite))
-    true_ate = np.array(tf.reduce_mean(true_ite))
 
     pehe = np.mean((pred_ite - true_ite) ** 2)
     msey = np.mean((pre_test_yf - test_yf) ** 2)
-    err_ate = np.abs(ATE - true_ate)
-    return msey, pehe, err_ate
+    return msey, pehe
 
 
